@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1.0,minimum-scale=1.0,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>继承</title>
+</head>
+
+<body>
+    <script>
+        // 一：组合继承
+      function Animal(){
+        this.species = "动物";
+    }
+    
+    function Cat(name,color){
+        //使用构造函数绑定实现了对父类属性的继承
+        Animal.call(this);
+        this.name=name;
+        this.color=color;
+    }
+
+     //原型链继承-继承property对象的属性和方法
+    Cat.prototype = new Animal();
+    Cat.prototype.constructor = Cat;
+     var cat1 = new Cat("花花","红");
+    console.log(cat1);
+    
+
+    </script>
+</body>
